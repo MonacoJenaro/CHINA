@@ -1,0 +1,618 @@
+/* Variables CSS */
+:root {
+    --rojo-china: #de2910;
+    --amarillo-china: #ffde00;
+    --azul-onu: #009edb;
+    --azul-oscuro-onu: #1e3a8a;
+    --oro-imperial: #d4af37;
+    --negro-tinta: #1a1a1a;
+    --blanco-jade: #f8f9fa;
+    --gris-bambu: #6b7280;
+    --sombra-roja: rgba(222, 41, 16, 0.2);
+    --sombra-azul: rgba(0, 158, 219, 0.2);
+    --gradiente-china: linear-gradient(135deg, var(--rojo-china), #c41e3a);
+    --gradiente-onu: linear-gradient(135deg, var(--azul-onu), var(--azul-oscuro-onu));
+}
+
+/* Reset y configuración base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Noto Sans SC', sans-serif;
+    line-height: 1.6;
+    background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+    color: var(--blanco-jade);
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Decoraciones de fondo */
+.background-decoration {
+    position: fixed;
+    font-size: 20rem;
+    z-index: -1;
+    opacity: 0.03;
+    pointer-events: none;
+    font-weight: bold;
+}
+
+.dragon {
+    top: 10%;
+    left: -5%;
+    color: var(--rojo-china);
+    transform: rotate(-15deg);
+}
+
+.phoenix {
+    bottom: 15%;
+    right: -5%;
+    color: var(--amarillo-china);
+    transform: rotate(15deg);
+}
+
+.harmony {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    color: var(--azul-onu);
+    font-size: 25rem;
+}
+
+/* Header */
+.main-header {
+    background: var(--gradiente-china);
+    padding: 4rem 2rem;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 8px 32px var(--sombra-roja);
+}
+
+.main-header::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--amarillo-china), var(--azul-onu), var(--amarillo-china));
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.flags {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 2rem;
+}
+
+.flag {
+    font-size: 4rem;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    animation: wave 2s ease-in-out infinite alternate;
+}
+
+.china-flag {
+    animation-delay: 0s;
+}
+
+.un-flag {
+    animation-delay: 0.5s;
+}
+
+@keyframes wave {
+    0% { transform: scale(1) rotate(-2deg); }
+    100% { transform: scale(1.1) rotate(2deg); }
+}
+
+.main-title {
+    margin-bottom: 1.5rem;
+}
+
+.chinese-text {
+    display: block;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+.subtitle {
+    display: block;
+    font-size: 2rem;
+    font-weight: 400;
+    opacity: 0.9;
+    font-family: 'Playfair Display', serif;
+}
+
+.date-established {
+    font-size: 1.4rem;
+    color: var(--amarillo-china);
+    font-weight: 500;
+}
+
+/* Navegación */
+.main-nav {
+    background: var(--gradiente-onu);
+    padding: 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 16px var(--sombra-azul);
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.nav-link {
+    color: var(--blanco-jade);
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: 500;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.nav-link:hover::before {
+    left: 100%;
+}
+
+/* Contenido principal */
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.content-section {
+    margin-bottom: 8rem;
+    position: relative;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-title {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--rojo-china), var(--amarillo-china), var(--azul-onu));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.decorative-line {
+    width: 100px;
+    height: 4px;
+    background: var(--gradiente-china);
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+/* Grid de contenido */
+.content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.text-content {
+    font-size: 1.6rem;
+    line-height: 1.8;
+}
+
+.intro-text {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    color: var(--amarillo-china);
+}
+
+.timeline-card {
+    background: var(--gradiente-china);
+    padding: 3rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 15px 35px var(--sombra-roja);
+    transform: perspective(1000px) rotateY(-5deg);
+    transition: all 0.3s ease;
+}
+
+.timeline-card:hover {
+    transform: perspective(1000px) rotateY(0deg) scale(1.05);
+}
+
+.year {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--amarillo-china);
+    margin-bottom: 1rem;
+}
+
+.event {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.chinese-year {
+    font-size: 1.4rem;
+    opacity: 0.8;
+}
+
+/* Grid de cooperación */
+.cooperation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.cooperation-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.cooperation-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, var(--rojo-china) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.cooperation-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-color: var(--rojo-china);
+}
+
+.cooperation-card:hover::before {
+    opacity: 0.1;
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+.cooperation-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--amarillo-china);
+}
+
+.cooperation-card p {
+    font-size: 1.4rem;
+    line-height: 1.6;
+}
+
+/* Logros */
+.achievements-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.achievement-item {
+    background: var(--gradiente-onu);
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 25px var(--sombra-azul);
+    transition: all 0.3s ease;
+}
+
+.achievement-item:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 20px 40px var(--sombra-azul);
+}
+
+.achievement-number {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--amarillo-china);
+    margin-bottom: 1rem;
+}
+
+.achievement-text {
+    font-size: 1.4rem;
+    line-height: 1.5;
+}
+
+/* Visión del futuro */
+.vision-card {
+    background: linear-gradient(135deg, rgba(222, 41, 16, 0.1), rgba(0, 158, 219, 0.1));
+    border: 2px solid var(--oro-imperial);
+    border-radius: 20px;
+    padding: 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.vision-card::before {
+    content: '和';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 15rem;
+    color: rgba(212, 175, 55, 0.05);
+    z-index: 0;
+}
+
+.vision-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+.vision-card h3 {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    color: var(--oro-imperial);
+}
+
+.vision-card p {
+    font-size: 1.6rem;
+    line-height: 1.8;
+}
+
+/* Sección de celebración */
+.celebration-section {
+    background: var(--gradiente-china);
+    margin: 6rem -2rem 0;
+    padding: 6rem 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.celebration-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.celebration-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--amarillo-china);
+}
+
+.celebration-subtitle {
+    font-size: 1.6rem;
+    margin-bottom: 3rem;
+    opacity: 0.9;
+}
+
+.celebration-button {
+    background: linear-gradient(135deg, var(--oro-imperial), #f4d03f);
+    border: none;
+    border-radius: 50px;
+    padding: 2rem 4rem;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--negro-tinta);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.celebration-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+    transition: all 0.5s ease;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+.celebration-button:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5);
+}
+
+.celebration-button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.celebration-button:active {
+    transform: translateY(-2px) scale(1.02);
+}
+
+.btn-text {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.btn-chinese {
+    display: block;
+    font-size: 1.4rem;
+    opacity: 0.8;
+}
+
+/* Fuegos artificiales */
+#fireworks-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.firework {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    animation: explode 0.8s ease-out forwards;
+}
+
+@keyframes explode {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(20);
+    }
+}
+
+/* Footer */
+.main-footer {
+    background: var(--negro-tinta);
+    padding: 3rem 2rem;
+    text-align: center;
+    border-top: 3px solid var(--oro-imperial);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-text p {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+.footer-year {
+    font-size: 1.2rem;
+    color: var(--oro-imperial);
+    font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    html {
+        font-size: 55%;
+    }
+    
+    .chinese-text {
+        font-size: 2.8rem;
+    }
+    
+    .subtitle {
+        font-size: 1.6rem;
+    }
+    
+    .nav-list {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .cooperation-grid,
+    .achievements-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .flags {
+        gap: 2rem;
+    }
+    
+    .flag {
+        font-size: 3rem;
+    }
+    
+    .celebration-button {
+        padding: 1.5rem 3rem;
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 50%;
+    }
+    
+    .main-content {
+        padding: 3rem 1rem;
+    }
+    
+    .vision-card {
+        padding: 3rem 2rem;
+    }
+    
+    .timeline-card {
+        transform: none;
+    }
+    
+    .background-decoration {
+        display: none;
+    }
+}
